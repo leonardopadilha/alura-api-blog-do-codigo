@@ -1,10 +1,15 @@
 const usuariosControlador = require('./usuarios-controlador');
+const middlesAutenticacao = require('./middlewares-autenticacao');
 const passport = require('passport');
+
 
 module.exports = app => {
   app
     .route('/usuario/login')
-    .post(passport.authenticate('local', { session: false }),  usuariosControlador.login)
+    .post(
+      middlesAutenticacao.local, 
+      usuariosControlador.login
+    )
 
   app
     .route('/usuario')
