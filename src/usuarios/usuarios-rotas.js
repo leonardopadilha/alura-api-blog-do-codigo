@@ -7,7 +7,11 @@ module.exports = app => {
     .post(
       middlesAutenticacao.local, 
       usuariosControlador.login
-    )
+    );
+
+  app
+      .route('/usuario/logout')
+      .get(middlesAutenticacao.bearer, usuariosControlador.logout)
 
   app
     .route('/usuario')
